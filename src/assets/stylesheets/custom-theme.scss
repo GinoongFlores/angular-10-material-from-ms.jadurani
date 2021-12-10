@@ -1,0 +1,98 @@
+@import '~@angular/material/theming';
+@import 'custom-colors.scss';
+
+$custom-typography: mat-typography-config(
+  $font-family: "'Work Sans', sans-serif",
+);
+
+@include mat-core($custom-typography);
+
+$my-app-primary: mat-palette($mat-gray, 600, 200, 900);
+$my-app-accent: mat-palette($mat-green, A700, 300, 900);
+$my-app-warn: mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+@include angular-material-theme($my-app-theme);
+
+.alternate-theme {
+  $alternate-primary: mat-palette($mat-light-blue);
+  $alternate-accent: mat-palette($mat-yellow, 400);
+
+  $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent);
+
+  @include angular-material-theme($alternate-theme);
+}
+
+// To match April 22
+.ReliefAgad {
+  background-color: #e5e5e5;
+
+  &.dark-bg {
+    background-color: #2a3765;
+    color: $light-primary-text;
+  }
+
+  &.dark-bg--lighter {
+    background-color: #324177;
+    color: $light-primary-text;
+  }
+
+  $relief-agad-typography: mat-typography-config(
+    $font-family: "'Work Sans', sans-serif",
+  );
+
+  @include mat-core($relief-agad-typography);
+
+  $relief-agad-primary: mat-palette($relief-agad-blue, 500, 200, 900);
+  $relief-agad-accent: mat-palette($relief-agad-green, 500, 300, 900);
+  $relief-agad-warn: mat-palette($mat-deep-orange);
+  $relief-agad-theme: mat-light-theme(
+    $relief-agad-primary,
+    $relief-agad-accent,
+    $relief-agad-warn
+  );
+
+  @include angular-material-theme($relief-agad-theme);
+
+  // Change overall flat button appearance
+  button.mat-flat-button,
+  a.mat-flat-button {
+    border-radius: 20px !important;
+    font-weight: 500;
+    line-height: 40px;
+    min-height: 40px;
+    text-decoration: none;
+  }
+
+  button.mat-stroked-button,
+  a.mat-stroked-button {
+    border-radius: 20px !important;
+    font-weight: 500;
+    line-height: 40px;
+  }
+
+  caption {
+    /* Caption - Regular 12pt */
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 13px;
+    color: #fff1f1;
+  }
+}
+
+// For checkbox labels to line-wrap
+// https://github.com/angular/components/issues/8416
+.mat-checkbox-layout {
+  white-space: normal !important;
+}
+
+// Add more space between checkbox and its label
+.mat-checkbox-inner-container {
+  margin-right: 24px !important;
+}
+
+.mat-select-panel.no-height-limit {
+  max-height: none;
+}

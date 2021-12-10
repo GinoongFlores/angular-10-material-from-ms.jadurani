@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="text-center">Puno ng Pamilya</div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<form [formGroup]="personalInfoForm" class="p-8" novalidate autocomplete="off">
+  <p><strong>IMPORMASYON NG PUNO NG PAMILYA:</strong></p>
+
+  <!-- Pangalan -->
+  <p>
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Unang Pangalan / First Name *</mat-label>
+      <input
+        matInput
+        placeholder="Gitnang Pangalang / First Name"
+        formControlName="firstName"
+      />
+    </mat-form-field>
+  </p>
+
+  <!-- <mat-form-field color="accent" appearance="outline">
+    <mat-label>Inherited calendar color</mat-label>
+    <input matInput [matDatepicker]="picker1" />
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field> -->
+
+  <button
+    mat-flat-button
+    color="accent"
+    class="mt-4 ReliefAgad-cta"
+    (click)="submitForm()"
+  >
+    Magsimula
+  </button>
+</form>
